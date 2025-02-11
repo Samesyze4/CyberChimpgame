@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CyberChimp Gaming</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js" defer></script>
+    <!-- Monetization & Sponsorship Optimization -->
+    <meta name="description" content="CyberChimp Gaming - A futuristic steampunk gaming hub with live streams, PC builds, and affiliate deals. Join the chaos!">
+    <meta name="keywords" content="gaming, PC builds, live streams, tech, esports, cyberpunk, steampunk">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/web3@latest/dist/web3.min.js"></script>
+</head>
+<body>
+    <header>
+        <h1>CyberChimp Gaming</h1>
+        <nav>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#streams">Streams</a></li>
+                <li><a href="#store">Store</a></li>
+                <li><a href="#minigame">Mini-Game</a></li>
+                <li><a href="#sponsors">Sponsors</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li><a href="#crypto">Crypto Rewards</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <section id="home">
+        <h2>Welcome to CyberChimp Gaming</h2>
+        <p>The most chaotic, steam-powered gaming hub run by a cybernetic chimp.</p>
+        <div id="adsense-banner"><!-- Google AdSense Banner --></div>
+        <div id="cyberchimp">
+            <img src="assets/images/cyberchimp.png" alt="CyberChimp Mascot">
+        </div>
+    </section>
+    
+    <section id="streams">
+        <h2>Live Stream</h2>
+        <iframe src="https://player.twitch.tv/?channel=yourchannel&parent=yourwebsite.com" frameborder="0" allowfullscreen></iframe>
+        <h3>Past Streams</h3>
+        <div id="stream-categories">
+            <!-- Categorized past streams will be loaded dynamically -->
+        </div>
+    </section>
+    
+    <section id="store">
+        <h2>Affiliate Store</h2>
+        <p>Support the CyberChimp by shopping through our affiliate links.</p>
+        <ul>
+            <li><a href="https://www.amazon.com" target="_blank">Amazon</a></li>
+            <li><a href="https://www.newegg.com" target="_blank">Newegg</a></li>
+        </ul>
+        <p>Merch coming soon...</p>
+    </section>
+    
+    <section id="minigame">
+        <h2>Mini-Game: Wrench Dodge</h2>
+        <canvas id="gameCanvas"></canvas>
+    </section>
+    
+    <section id="crypto">
+        <h2>Earn $CYBERCHIMP Tokens</h2>
+        <button id="connectWallet">Connect MetaMask</button>
+        <p id="walletStatus">Not Connected</p>
+    </section>
+    
+    <section id="sponsors">
+        <h2>Our Sponsors</h2>
+        <p>Interested in sponsoring CyberChimp Gaming? Contact us for collaboration opportunities.</p>
+        <div id="sponsor-logos">
+            <!-- Sponsor logos go here -->
+        </div>
+    </section>
+    
+    <section id="contact">
+        <h2>Contact</h2>
+        <p>Reach out to the chimp via email: <a href="mailto:samesyze@proton.me">samesyze@proton.me</a></p>
+    </section>
+    
+    <footer>
+        <p>&copy; 2024 CyberChimp Gaming. All rights reserved.</p>
+    </footer>
+    
+    <script>
+        if (typeof window.ethereum !== 'undefined') {
+            const web3 = new Web3(window.ethereum);
+            document.getElementById('connectWallet').addEventListener('click', async () => {
+                try {
+                    const accounts = await window.ethereum.request({ method: 'eth_requestAccounts' });
+                    document.getElementById('walletStatus').innerText = `Connected: ${accounts[0]}`;
+                } catch (error) {
+                    console.error("Error connecting to MetaMask", error);
+                }
+            });
+        } else {
+            document.getElementById('walletStatus').innerText = 'MetaMask not detected';
+        }
+        
+        // CyberChimp movement logic
+        function moveCyberChimp() {
+            const chimp = document.getElementById('cyberchimp');
+            const positions = [
+                { top: '10%', left: '10%' },
+                { top: '20%', left: '50%' },
+                { top: '40%', left: '30%' },
+                { top: '60%', left: '70%' },
+                { top: '80%', left: '20%' }
+            ];
+            
+            const randomPosition = positions[Math.floor(Math.random() * positions.length)];
+            chimp.style.position = 'absolute';
+            chimp.style.top = randomPosition.top;
+            chimp.style.left = randomPosition.left;
+        }
+        
+        setInterval(moveCyberChimp, 43200000); // Moves every 12 hours
+
+        document.getElementById('cyberchimp').addEventListener('click', () => {
+            window.location.href = '#minigame';
+        });
+    </script>
+</body>
+</html>
