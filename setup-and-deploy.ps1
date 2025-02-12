@@ -16,10 +16,10 @@ npm audit fix --force
 
 # Run tests
 Write-Host "Running tests..."
-npm test
+npx hardhat test
 
 # Deploy the project
 Write-Host "Deploying the project..."
-npm run deploy
+npx hardhat run scripts/deploy.js --network amoy
 
 Write-Host "Setup and deployment completed successfully."
