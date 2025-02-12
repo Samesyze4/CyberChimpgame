@@ -8,12 +8,16 @@ npm install
 echo "Fixing vulnerabilities..."
 npm audit fix --force
 
+# Compile contracts
+echo "Compiling contracts..."
+truffle compile
+
 # Run tests
 echo "Running tests..."
-npx hardhat test
+truffle test
 
 # Deploy the project
 echo "Deploying the project..."
-npx hardhat run scripts/deploy.js --network amoy
+truffle migrate --network amoy
 
 echo "Setup and deployment completed successfully."
