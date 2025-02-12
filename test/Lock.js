@@ -4,6 +4,7 @@ const {
 } = require("@nomicfoundation/hardhat-toolbox/network-helpers");
 const { anyValue } = require("@nomicfoundation/hardhat-chai-matchers/withArgs");
 const { expect } = require("chai");
+const { ethers } = require("hardhat");
 
 describe("Lock", function () {
   // We define a fixture to reuse the same setup in every test.
@@ -43,7 +44,7 @@ describe("Lock", function () {
         deployOneYearLockFixture
       );
 
-      expect(await ethers.provider.getBalance(lock.target)).to.equal(
+      expect(await ethers.provider.getBalance(lock.address)).to.equal(
         lockedAmount
       );
     });

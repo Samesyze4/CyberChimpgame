@@ -1,7 +1,7 @@
 # Ensure the correct Node.js version is used
 Write-Host "Checking Node.js version..."
 $nodeVersion = node -v
-if ($nodeVersion -lt "14.0.0") {
+if ($nodeVersion -lt "v14.0.0") {
     Write-Host "Node.js version 14 or higher is required. Please update Node.js."
     exit 1
 }

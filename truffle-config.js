@@ -30,6 +30,12 @@ module.exports = {
   compilers: {
     solc: {
       version: "0.8.19", // Specify the Solidity compiler version
+      settings: {
+        optimizer: {
+          enabled: true,
+          runs: 200
+        }
+      }
     },
   },
 };
